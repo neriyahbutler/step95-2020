@@ -61,6 +61,9 @@ export const getCVE = functions.https.onRequest((request, response) => {
     }
     getCvesWithAndroidVersion(String(androidVersion), response);
   }
+  else{
+    response.status(400).send("Error: A query parameter is required.");
+  }
 });
 
 function getCvesWithBulletinID(id: string, res: any) {
